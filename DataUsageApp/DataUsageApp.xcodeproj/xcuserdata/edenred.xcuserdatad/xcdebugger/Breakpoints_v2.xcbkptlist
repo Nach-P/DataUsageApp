@@ -30,8 +30,8 @@
             filePath = "DataUsageApp/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "DataUsageApp/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "fetchDataForSelectedYear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "DataUsageApp/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,9 +78,73 @@
             filePath = "DataUsageApp/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "imageTapGesture(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86C81F7F-4B66-44C9-8DF9-66D6316E41B6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DataUsageApp/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "fetchDataForSelectedYear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "86C81F7F-4B66-44C9-8DF9-66D6316E41B6 - 4fb24a6a08bad299"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DataUsageApp.ViewController.fetchDataForSelectedYear(__C.UIButton) -&gt; ()"
+                  moduleName = "DataUsageApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenred/Documents/GitHub/DataUsageApp/DataUsageApp/DataUsageApp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "1691">
+               </Location>
+               <Location
+                  uuid = "86C81F7F-4B66-44C9-8DF9-66D6316E41B6 - 31c35ed95f4053b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in DataUsageApp.ViewController.fetchDataForSelectedYear(__C.UIButton) -&gt; ()"
+                  moduleName = "DataUsageApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/edenred/Documents/GitHub/DataUsageApp/DataUsageApp/DataUsageApp/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "216">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "754D7672-67C2-4B6B-BE5E-F206CD0703F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DataUsageApp/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "fetchDataForSelectedYear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -40,7 +40,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         if(offSetNumber < 0) {
             offSetNumber = 0
         }
-    
+        clearData()
         let urlString = "\(Constants.link.baseUrl)\(Constants.link.apiUrl)\(Constants.link.offset)\(offSetNumber)\(Constants.link.limit)\(Constants.link.numberOfLimits)\(Constants.link.resourceid)"
         WebserviceManager.fetchData(urlString: urlString, completion: {
             dict,error in
@@ -49,10 +49,23 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
                 self.responseDict = responseJSON["records"] as! [[String : Any]]
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
+                    self.createCache()
                 }
             }
         })
+        
+        if(responseDict.isEmpty) {
+            let userDefaults = UserDefaults.standard
+            if(userDefaults.value(forKey: "\(self.yearSelected)") != nil) {
+                self.responseDict = userDefaults.value(forKey: "\(self.yearSelected)") as! [[String : Any]]
+            }
+            self.collectionView.reloadData()
+        }
+    }
     
+    func createCache() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(self.responseDict, forKey: "\(yearSelected)")
     }
     
     @IBAction func imageTapGesture(_ sender: Any) {

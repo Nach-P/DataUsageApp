@@ -29,5 +29,44 @@ class DataUsageAppTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testDataUsageAPI() {
+        WebserviceManager.fetchData(urlString: "https://data.gov.sg/api/action/datastore_search?offset=0&limit=4&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f", completion: {
+            dict,error in
+            if let fetchDataSuccess = dict?["success"] {
+                XCTAssertTrue(fetchDataSuccess as! Bool)
+            }
+        })
+    }
+    
+    func testFailDataUsageAPI() {
+        WebserviceManager.fetchData(urlString: "https://data.gov.sg/api/action/datastore_search?offset=-2&limit=4&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f", completion: {
+            dict,error in
+            if let fetchDataSuccess = dict?["success"] {
+                XCTAssertFalse(fetchDataSuccess as! Bool)
+            }
+        })
+    }
+    
+    func testExceptionDataUsageAPI() {
+        let expectation = XCTestExpectation(description: "ExceptionAPI")
+        WebserviceManager.fetchData(urlString: "https://data.gov.sg/api/action/datastore_search?offset=2&limit=4&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f", completion: {
+            dict,error in
+            if let fetchDataSuccess = dict?["success"] {
+                XCTAssertTrue(fetchDataSuccess as! Bool)
+                expectation.fulfill()
+            }
+        })
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testInternalServerDataUsageAPI() {
+        WebserviceManager.fetchData(urlString: "https://data.gov.sg/api/datastore_search?offset=2&limit=4&resource_id=a807b7ab-6cad-4aa6-87d0-e283a7353a0f", completion: {
+            dict,error in
+            if let fetchDataSuccess = dict?["success"] {
+                XCTAssertTrue(fetchDataSuccess as! Bool)
+            }
+        })
+    }
 
 }

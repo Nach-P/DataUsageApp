@@ -1,24 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DataUsageApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmJ-p3-PxZ">
+                                <rect key="frame" x="15" y="74" width="384" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="MDb-rB-Hk9"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="3RL-bK-e7s"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="SA9-XZ-KG6"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQj-oI-RV9">
+                                <rect key="frame" x="147" y="159" width="120" height="45"/>
+                                <color key="backgroundColor" red="0.86666666670000003" green="0.1137254902" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Rfp-1U-GiH"/>
+                                    <constraint firstAttribute="height" constant="45" id="tQc-rr-ikk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                <state key="normal" title="Fetch Data">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="fetchDataForSelectedYear:" destination="BYZ-38-t0r" eventType="touchUpInside" id="toW-aW-lZS"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SEH-4a-A93">
+                                <rect key="frame" x="15" y="249" width="384" height="563"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oIx-2o-zOo">
+                                    <size key="itemSize" width="362" height="142"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DataUsageForAQuarterCell" id="dmD-jG-dSS" customClass="DataUsageForAQuarterCell" customModule="DataUsageApp" customModuleProvider="target">
+                                        <rect key="frame" x="11" y="0.0" width="362" height="142"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="00Q-9E-WpD">
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="142"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DataUsageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vjl-rC-hBb">
+                                                    <rect key="frame" x="10" y="46" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="O6r-XT-Hzn"/>
+                                                        <constraint firstAttribute="width" secondItem="Vjl-rC-hBb" secondAttribute="height" multiplier="1:1" id="hhq-N6-fh2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLU-l1-159">
+                                                    <rect key="frame" x="85" y="36" width="262" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="aLt-uC-qwl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U21-sE-Tf2">
+                                                    <rect key="frame" x="85" y="96" width="262" height="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="0.15263805650684931" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="U21-sE-Tf2" firstAttribute="leading" secondItem="LLU-l1-159" secondAttribute="leading" id="BZQ-iP-gD9"/>
+                                                <constraint firstItem="Vjl-rC-hBb" firstAttribute="leading" secondItem="00Q-9E-WpD" secondAttribute="leading" constant="10" id="Bcx-AS-UdH"/>
+                                                <constraint firstAttribute="trailing" secondItem="LLU-l1-159" secondAttribute="trailing" constant="15" id="DFS-IP-s69"/>
+                                                <constraint firstItem="U21-sE-Tf2" firstAttribute="trailing" secondItem="LLU-l1-159" secondAttribute="trailing" id="FXJ-98-wSJ"/>
+                                                <constraint firstItem="U21-sE-Tf2" firstAttribute="bottom" secondItem="Vjl-rC-hBb" secondAttribute="bottom" id="Z77-D3-sec"/>
+                                                <constraint firstItem="LLU-l1-159" firstAttribute="leading" secondItem="Vjl-rC-hBb" secondAttribute="trailing" constant="25" id="iDa-UH-XHm"/>
+                                                <constraint firstItem="LLU-l1-159" firstAttribute="centerY" secondItem="Vjl-rC-hBb" secondAttribute="top" id="k2b-Zx-0bG"/>
+                                                <constraint firstItem="Vjl-rC-hBb" firstAttribute="centerY" secondItem="00Q-9E-WpD" secondAttribute="centerY" id="lOl-hh-PBx"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="362" height="142"/>
+                                        <connections>
+                                            <outlet property="amountOfDataUsedLabel" destination="U21-sE-Tf2" id="O8S-he-IYe"/>
+                                            <outlet property="dataUsageImageView" destination="Vjl-rC-hBb" id="zPW-eJ-fc3"/>
+                                            <outlet property="headerLabel" destination="LLU-l1-159" id="rt5-vx-S0D"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ZZf-2F-qkU"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fmJ-p3-PxZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="4Vi-Ex-Tvs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SEH-4a-A93" secondAttribute="bottom" constant="50" id="Gfa-xN-9Zf"/>
+                            <constraint firstItem="SEH-4a-A93" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="Hgw-pE-iUS"/>
+                            <constraint firstItem="TQj-oI-RV9" firstAttribute="top" secondItem="fmJ-p3-PxZ" secondAttribute="bottom" constant="25" id="JZm-Hu-Nam"/>
+                            <constraint firstItem="fmJ-p3-PxZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="MyE-RB-dG8"/>
+                            <constraint firstItem="TQj-oI-RV9" firstAttribute="centerX" secondItem="fmJ-p3-PxZ" secondAttribute="centerX" id="eTb-W3-K6a"/>
+                            <constraint firstItem="SEH-4a-A93" firstAttribute="centerX" secondItem="TQj-oI-RV9" secondAttribute="centerX" id="gyk-Zp-PDn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fmJ-p3-PxZ" secondAttribute="trailing" constant="15" id="pBP-tK-MWL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SEH-4a-A93" secondAttribute="trailing" constant="15" id="pw9-lR-Io4"/>
+                            <constraint firstItem="SEH-4a-A93" firstAttribute="top" secondItem="TQj-oI-RV9" secondAttribute="bottom" constant="45" id="xfp-IS-tdE"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="SEH-4a-A93" id="8vi-9A-jCJ"/>
+                        <outlet property="collectionViewLayout" destination="oIx-2o-zOo" id="sUv-PC-Xkx"/>
+                        <outlet property="yearPicker" destination="fmJ-p3-PxZ" id="57Q-F6-10o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="DataUsageIcon" width="170.66667175292969" height="170.66667175292969"/>
+    </resources>
 </document>

@@ -14,6 +14,8 @@
 		2B9BB8642413B8F4004BEF6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B9BB8632413B8F4004BEF6C /* Assets.xcassets */; };
 		2B9BB8672413B8F4004BEF6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B9BB8652413B8F4004BEF6C /* LaunchScreen.storyboard */; };
 		2B9BB8722413B8F4004BEF6C /* DataUsageAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9BB8712413B8F4004BEF6C /* DataUsageAppTests.swift */; };
+		2B9BB87D2413C548004BEF6C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9BB87C2413C548004BEF6C /* Constants.swift */; };
+		2B9BB87F2413F001004BEF6C /* WebserviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9BB87E2413F001004BEF6C /* WebserviceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		2B9BB86D2413B8F4004BEF6C /* DataUsageAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataUsageAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B9BB8712413B8F4004BEF6C /* DataUsageAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUsageAppTests.swift; sourceTree = "<group>"; };
 		2B9BB8732413B8F4004BEF6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B9BB87C2413C548004BEF6C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2B9BB87E2413F001004BEF6C /* WebserviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebserviceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +86,9 @@
 				2B9BB85A2413B8F2004BEF6C /* AppDelegate.swift */,
 				2B9BB85C2413B8F2004BEF6C /* SceneDelegate.swift */,
 				2B9BB85E2413B8F2004BEF6C /* ViewController.swift */,
+				2B9BB87E2413F001004BEF6C /* WebserviceManager.swift */,
 				2B9BB8602413B8F2004BEF6C /* Main.storyboard */,
+				2B9BB87C2413C548004BEF6C /* Constants.swift */,
 				2B9BB8632413B8F4004BEF6C /* Assets.xcassets */,
 				2B9BB8652413B8F4004BEF6C /* LaunchScreen.storyboard */,
 				2B9BB8682413B8F4004BEF6C /* Info.plist */,
@@ -200,8 +206,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B9BB85F2413B8F2004BEF6C /* ViewController.swift in Sources */,
+				2B9BB87F2413F001004BEF6C /* WebserviceManager.swift in Sources */,
 				2B9BB85B2413B8F2004BEF6C /* AppDelegate.swift in Sources */,
 				2B9BB85D2413B8F2004BEF6C /* SceneDelegate.swift in Sources */,
+				2B9BB87D2413C548004BEF6C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -61,10 +61,14 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DataUsageIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vjl-rC-hBb">
                                                     <rect key="frame" x="10" y="46" width="50" height="50"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="O6r-XT-Hzn"/>
                                                         <constraint firstAttribute="width" secondItem="Vjl-rC-hBb" secondAttribute="height" multiplier="1:1" id="hhq-N6-fh2"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="bc6-nj-U7t" appends="YES" id="iXb-e8-Pph"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLU-l1-159">
                                                     <rect key="frame" x="85" y="36" width="262" height="20"/>
@@ -104,6 +108,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="ZZf-2F-qkU"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RHZ-Nz-tuG"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -129,6 +134,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bc6-nj-U7t">
+                    <connections>
+                        <action selector="imageTapGesture:" destination="BYZ-38-t0r" id="Yl3-7F-wvT"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="111.83035714285714"/>
         </scene>

@@ -13,9 +13,11 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
+    var imageTap = UITapGestureRecognizer()
     var yearArray:[Int] = Array()
     var yearSelected = Constants.defaultValues.baseYear
     var responseDict:[[String: Any]] = Array()
+    var previousQuarterVolume = 0.00
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +40,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         if(offSetNumber < 0) {
             offSetNumber = 0
         }
-        self.responseDict = []
-        self.collectionView.reloadData()
+    
         let urlString = "\(Constants.link.baseUrl)\(Constants.link.apiUrl)\(Constants.link.offset)\(offSetNumber)\(Constants.link.limit)\(Constants.link.numberOfLimits)\(Constants.link.resourceid)"
         WebserviceManager.fetchData(urlString: urlString, completion: {
             dict,error in
@@ -53,7 +54,19 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         })
     
     }
+    
+    @IBAction func imageTapGesture(_ sender: Any) {
+        let alertController = UIAlertController(title: "Alert", message:
+               "Decrease Image Tapped", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
 
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    func clearData() {
+        responseDict = []
+        collectionView.reloadData()
+    }
     
     //Picker methods
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -100,10 +113,18 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         cell.layer.borderColor = UIColor(red: 0, green: 114/255, blue: 206/255, alpha: 1).cgColor
         cell.layer.borderWidth = 1.0
         
+        let currentVolume =  Double( cellData["volume_of_mobile_data"] as! String)!
+        if(self.previousQuarterVolume > 0 && previousQuarterVolume > currentVolume) {
+            cell.dataUsageImageView.image = UIImage(named: "DataDecreaseIcon")
+            cell.dataUsageImageView.isUserInteractionEnabled = true
+        } else {
+            cell.dataUsageImageView.image = UIImage(named: "DataUsageIcon")
+            cell.dataUsageImageView.isUserInteractionEnabled = false
+        }
+        self.previousQuarterVolume = currentVolume
+        
         return cell
     }
-    
-    
     
 }
 
@@ -111,5 +132,6 @@ class DataUsageForAQuarterCell : UICollectionViewCell {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var amountOfDataUsedLabel: UILabel!
     @IBOutlet weak var dataUsageImageView: UIImageView!
+    
 }
 

@@ -66,9 +66,6 @@
                                                         <constraint firstAttribute="height" constant="50" id="O6r-XT-Hzn"/>
                                                         <constraint firstAttribute="width" secondItem="Vjl-rC-hBb" secondAttribute="height" multiplier="1:1" id="hhq-N6-fh2"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="bc6-nj-U7t" appends="YES" id="iXb-e8-Pph"/>
-                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLU-l1-159">
                                                     <rect key="frame" x="85" y="36" width="262" height="20"/>
@@ -130,13 +127,14 @@
                     <connections>
                         <outlet property="collectionView" destination="SEH-4a-A93" id="8vi-9A-jCJ"/>
                         <outlet property="collectionViewLayout" destination="oIx-2o-zOo" id="sUv-PC-Xkx"/>
+                        <outlet property="imageTapGesture" destination="bc6-nj-U7t" id="wd9-aX-nBp"/>
                         <outlet property="yearPicker" destination="fmJ-p3-PxZ" id="57Q-F6-10o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="bc6-nj-U7t">
                     <connections>
-                        <action selector="imageTapGesture:" destination="BYZ-38-t0r" id="Yl3-7F-wvT"/>
+                        <action selector="imageTapped:" destination="BYZ-38-t0r" id="AaN-vp-dL2"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

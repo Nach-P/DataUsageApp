@@ -11,13 +11,15 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     
     @IBOutlet weak var yearPicker: UIPickerView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var collectionViewLayout: UICollectionViewFlowLayout!
-    var imageTap = UITapGestureRecognizer()
+    
+    @IBOutlet var imageTapGesture: UITapGestureRecognizer!
+    
     var yearArray:[Int] = Array()
     var yearSelected = Constants.defaultValues.baseYear
     var responseDict:[[String: Any]] = Array()
     var previousQuarterVolume = 0.00
+    var isAPILoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +46,11 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         let urlString = "\(Constants.link.baseUrl)\(Constants.link.apiUrl)\(Constants.link.offset)\(offSetNumber)\(Constants.link.limit)\(Constants.link.numberOfLimits)\(Constants.link.resourceid)"
         WebserviceManager.fetchData(urlString: urlString, completion: {
             dict,error in
+            self.isAPILoaded = true
             if(dict?["success"] as! Bool) {
                 let responseJSON : [String : Any] = dict!["result"]! as! Dictionary
                 self.responseDict = responseJSON["records"] as! [[String : Any]]
+                self.previousQuarterVolume = 0
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                     self.createCache()
@@ -54,7 +58,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
             }
         })
         
-        if(responseDict.isEmpty) {
+        if(responseDict.isEmpty && isAPILoaded) {
             let userDefaults = UserDefaults.standard
             if(userDefaults.value(forKey: "\(self.yearSelected)") != nil) {
                 self.responseDict = userDefaults.value(forKey: "\(self.yearSelected)") as! [[String : Any]]
@@ -68,7 +72,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         userDefaults.setValue(self.responseDict, forKey: "\(yearSelected)")
     }
     
-    @IBAction func imageTapGesture(_ sender: Any) {
+    @IBAction func imageTapped(_ sender: Any) {
         let alertController = UIAlertController(title: "Alert", message:
                "Decrease Image Tapped", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
@@ -79,6 +83,8 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
     func clearData() {
         responseDict = []
         collectionView.reloadData()
+        previousQuarterVolume = 0
+        isAPILoaded = false
     }
     
     //Picker methods
@@ -130,6 +136,7 @@ class ViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSour
         if(self.previousQuarterVolume > 0 && previousQuarterVolume > currentVolume) {
             cell.dataUsageImageView.image = UIImage(named: "DataDecreaseIcon")
             cell.dataUsageImageView.isUserInteractionEnabled = true
+            cell.dataUsageImageView.addGestureRecognizer(imageTapGesture)
         } else {
             cell.dataUsageImageView.image = UIImage(named: "DataUsageIcon")
             cell.dataUsageImageView.isUserInteractionEnabled = false
